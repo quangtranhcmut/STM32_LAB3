@@ -1,0 +1,6 @@
+seven_segment_led.c:11:6:resetAllDigits	8	static
+seven_segment_led.c:18:6:setDigit	16	static
+seven_segment_led.c:43:6:setNum2Digit	24	static
+seven_segment_led.c:53:6:display7SEG	32	static
+seven_segment_led.c:104:6:update7SEG	16	static
+seven_segment_led.c:140:6:updateBuffer	16	static
