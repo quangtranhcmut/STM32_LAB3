@@ -29,6 +29,5 @@ int isButtonPressed(int buttonIndex);
 int isButtonLongPressed(int buttonIndex);
 void subKeyProcess(int buttonIndex);
 void getKeyInput();
-void updateAllButtons(GPIO_TypeDef* GPIO_Port[], uint16_t GPIO_Pin[]);
 
 #endif /* INC_BUTTON_ARRAY_H_ */

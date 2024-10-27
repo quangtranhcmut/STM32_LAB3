@@ -1,0 +1,7 @@
+traffic_light.c:14:6:GREEN_RED	8	static
+traffic_light.c:22:6:YELLOW_RED	8	static
+traffic_light.c:30:6:RED_GREEN	8	static
+traffic_light.c:38:6:RED_YELLOW	8	static
+traffic_light.c:47:6:updateRedTime	4	static
+traffic_light.c:52:6:updateGreenTime	4	static
+traffic_light.c:57:6:updateYellowTime	4	static

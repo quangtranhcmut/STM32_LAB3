@@ -137,6 +137,11 @@ void update7SEG(int index) {
     }
 }
 
-void updateBuffer(int value) {
-
+void updateBufferXLine(int value) {
+	led_buffer[0] = (value / 10) % 10;
+	led_buffer[1]= value % 10;
+}
+void updateBufferYLine(int value) {
+	led_buffer[2] = (value / 10) % 10;
+	led_buffer[3]= value % 10;
 }

@@ -26,6 +26,7 @@
 #include "button.h"
 #include "button_array.h"
 #include "seven_segment_led.h"
+#include "traffic_light.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -103,9 +104,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		if(isButtonPressed(0)) {
-			HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
-		}
+
   }
   /* USER CODE END 3 */
 }
@@ -200,47 +199,46 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED1_Pin|EN0_Pin|EN1_Pin|EN2_Pin
+  HAL_GPIO_WritePin(GPIOA, DOT_Pin|EN0_Pin|EN1_Pin|EN2_Pin
                           |EN3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, SEG0_Pin|SEG1_Pin|SEG2_Pin|SEG3_Pin
-                          |SEG4_Pin|SEG5_Pin|SEG6_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, SEG0_Pin|SEG1_Pin|SEG2_Pin|LEDR_Y_Pin
+                          |LEDY_Y_Pin|LEDG_Y_Pin|SEG3_Pin|SEG4_Pin
+                          |SEG5_Pin|SEG6_Pin|LEDR_X_Pin|LEDY_X_Pin
+                          |LEDG_X_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : USER_BUTTON_Pin */
-  GPIO_InitStruct.Pin = USER_BUTTON_Pin;
+  /*Configure GPIO pins : BTN1_Pin BTN2_Pin BTN3_Pin */
+  GPIO_InitStruct.Pin = BTN1_Pin|BTN2_Pin|BTN3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(USER_BUTTON_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LED1_Pin EN0_Pin EN1_Pin EN2_Pin
+  /*Configure GPIO pins : DOT_Pin EN0_Pin EN1_Pin EN2_Pin
                            EN3_Pin */
-  GPIO_InitStruct.Pin = LED1_Pin|EN0_Pin|EN1_Pin|EN2_Pin
+  GPIO_InitStruct.Pin = DOT_Pin|EN0_Pin|EN1_Pin|EN2_Pin
                           |EN3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : SEG0_Pin SEG1_Pin SEG2_Pin SEG3_Pin
-                           SEG4_Pin SEG5_Pin SEG6_Pin */
-  GPIO_InitStruct.Pin = SEG0_Pin|SEG1_Pin|SEG2_Pin|SEG3_Pin
-                          |SEG4_Pin|SEG5_Pin|SEG6_Pin;
+  /*Configure GPIO pins : SEG0_Pin SEG1_Pin SEG2_Pin LEDR_Y_Pin
+                           LEDY_Y_Pin LEDG_Y_Pin SEG3_Pin SEG4_Pin
+                           SEG5_Pin SEG6_Pin LEDR_X_Pin LEDY_X_Pin
+                           LEDG_X_Pin */
+  GPIO_InitStruct.Pin = SEG0_Pin|SEG1_Pin|SEG2_Pin|LEDR_Y_Pin
+                          |LEDY_Y_Pin|LEDG_Y_Pin|SEG3_Pin|SEG4_Pin
+                          |SEG5_Pin|SEG6_Pin|LEDR_X_Pin|LEDY_X_Pin
+                          |LEDG_X_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : TEST_BUTTON_Pin */
-  GPIO_InitStruct.Pin = TEST_BUTTON_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(TEST_BUTTON_GPIO_Port, &GPIO_InitStruct);
 
 }
 
@@ -248,7 +246,6 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	timerRun();
-//	getKeyInput1(); //Function getKeyInput for single button
 	getKeyInput(); //Function getKeyInput for button array
 }
 /* USER CODE END 4 */

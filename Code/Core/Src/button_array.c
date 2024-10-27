@@ -60,9 +60,9 @@ void getKeyInput() {
 		KeyReg1[buttonIndex] = KeyReg0[buttonIndex];
 	}
 
-    KeyReg0[0] = HAL_GPIO_ReadPin(TEST_BUTTON_GPIO_Port, TEST_BUTTON_Pin);
-//    KeyReg0[1] = HAL_GPIO_ReadPin(GPIO_Port, GPIO_Pin);
-//    KeyReg0[2] = HAL_GPIO_ReadPin(GPIO_Port, GPIO_Pin);
+    KeyReg0[0] = HAL_GPIO_ReadPin(BTN1_GPIO_Port, BTN1_Pin);
+    KeyReg0[1] = HAL_GPIO_ReadPin(BTN2_GPIO_Port, BTN2_Pin);
+    KeyReg0[2] = HAL_GPIO_ReadPin(BTN3_GPIO_Port, BTN3_Pin);
 //    KeyReg0[3] = HAL_GPIO_ReadPin(GPIO_Port, GPIO_Pin);
 //    KeyReg0[4] = HAL_GPIO_ReadPin(GPIO_Port, GPIO_Pin);
 //    KeyReg0[5] = HAL_GPIO_ReadPin(GPIO_Port, GPIO_Pin);
@@ -93,9 +93,4 @@ void getKeyInput() {
     }
 }
 
-void updateAllButtons(GPIO_TypeDef* GPIO_Port[], uint16_t GPIO_Pin[]) {
-    for (int i = 0; i < NUM_BUTTONS; i++) {
-        getKeyInput(i, GPIO_Port[i], GPIO_Pin[i]);
-    }
-}
 

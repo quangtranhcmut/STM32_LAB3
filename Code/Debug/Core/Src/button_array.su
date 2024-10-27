@@ -3,4 +3,3 @@ button_array.c:37:5:isButtonPressed	16	static
 button_array.c:45:5:isButtonLongPressed	16	static
 button_array.c:53:6:subKeyProcess	16	static
 button_array.c:57:6:getKeyInput	16	static
-button_array.c:96:6:updateAllButtons	24	static
