@@ -7,6 +7,8 @@
 
 #include "software_timer.h"
 
+int timer_flag[10];
+int timer_counter[10];
 int TIMER_CYCLE = 10;
 void setTimer(int index, int counter){
 	timer_flag[index] = 0;

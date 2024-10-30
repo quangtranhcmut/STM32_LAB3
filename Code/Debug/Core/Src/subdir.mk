@@ -5,9 +5,12 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/automatic.c \
 ../Core/Src/button.c \
 ../Core/Src/button_array.c \
+../Core/Src/global.c \
 ../Core/Src/main.c \
+../Core/Src/manual.c \
 ../Core/Src/seven_segment_led.c \
 ../Core/Src/software_timer.c \
 ../Core/Src/stm32f1xx_hal_msp.c \
@@ -18,9 +21,12 @@ C_SRCS += \
 ../Core/Src/traffic_light.c 
 
 OBJS += \
+./Core/Src/automatic.o \
 ./Core/Src/button.o \
 ./Core/Src/button_array.o \
+./Core/Src/global.o \
 ./Core/Src/main.o \
+./Core/Src/manual.o \
 ./Core/Src/seven_segment_led.o \
 ./Core/Src/software_timer.o \
 ./Core/Src/stm32f1xx_hal_msp.o \
@@ -31,9 +37,12 @@ OBJS += \
 ./Core/Src/traffic_light.o 
 
 C_DEPS += \
+./Core/Src/automatic.d \
 ./Core/Src/button.d \
 ./Core/Src/button_array.d \
+./Core/Src/global.d \
 ./Core/Src/main.d \
+./Core/Src/manual.d \
 ./Core/Src/seven_segment_led.d \
 ./Core/Src/software_timer.d \
 ./Core/Src/stm32f1xx_hal_msp.d \

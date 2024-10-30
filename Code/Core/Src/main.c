@@ -27,6 +27,9 @@
 #include "button_array.h"
 #include "seven_segment_led.h"
 #include "traffic_light.h"
+#include "global.h"
+#include "automatic.h"
+#include "manual.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,6 +98,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
   initButtons(); //Init for button_array
+  setTimer(4, 1000);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -104,7 +108,13 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+	  fsm_automatic();
+	  fsm_manual();
+	  fsm_setting();
+	  if (timer_flag[4] == 1) {
+		  setTimer(4, 1000);
+		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+	  }
   }
   /* USER CODE END 3 */
 }
@@ -243,10 +253,21 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+int idx = 0;
+int countdown = 20;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
+	countdown--;
 	timerRun();
-	getKeyInput(); //Function getKeyInput for button array
+	getKeyInput();
+	update7SEG(idx);
+	if (countdown == 0){
+		idx++;
+		countdown = 20;
+	}
+	if (idx >= 4){
+		idx = 0;
+	}
 }
 /* USER CODE END 4 */
 

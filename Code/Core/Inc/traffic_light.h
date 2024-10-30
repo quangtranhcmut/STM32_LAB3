@@ -14,12 +14,25 @@ extern int redTime;
 extern int yellowTime;
 extern int greenTime;
 
-void GREEN_RED();
-void YELLOW_RED();
-void RED_GREEN();
-void RED_YELLOW();
+void trafficGreenRed();
+void trafficYellowRed();
+void trafficRedGreen();
+void trafficRedYellow();
+
+void setRedTime(int redValue);
+void setYellowTime(int yellowValue);
+void setGreenTime(int greenValue);
+
 void updateRedTime();
 void updateGreenTime();
 void updateYellowTime();
+
+void blinkRedLed();
+void blinkYellowLed();
+void blinkGreenLed();
+
+void blinkAllLed();
+
+void clearTrafficLight();
 
 #endif /* INC_TRAFFIC_LIGHT_H_ */

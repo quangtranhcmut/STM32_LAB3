@@ -9,8 +9,9 @@
 #define INC_SOFTWARE_TIMER_H_
 
 #include "main.h"
-int timer_flag[10];
-int timer_counter[10];
+
+extern int timer_flag[];
+extern int timer_counter[];
 extern int TIMER_CYCLE;
 void setTimer(int index, int counter);
 void timerRun();
