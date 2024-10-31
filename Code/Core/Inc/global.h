@@ -29,6 +29,4 @@ extern int status;
 #define MODE3 22
 #define MODE4 23
 
-void fsm_setting();
-
 #endif /* INC_GLOBAL_H_ */

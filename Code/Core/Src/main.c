@@ -30,6 +30,7 @@
 #include "global.h"
 #include "automatic.h"
 #include "manual.h"
+#include "setting.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -254,17 +255,11 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 int idx = 0;
-int countdown = 20;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	countdown--;
 	timerRun();
 	getKeyInput();
-	update7SEG(idx);
-	if (countdown == 0){
-		idx++;
-		countdown = 20;
-	}
+	update7SEG(idx++);
 	if (idx >= 4){
 		idx = 0;
 	}

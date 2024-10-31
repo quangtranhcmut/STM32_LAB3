@@ -11,6 +11,7 @@ C_SRCS += \
 ../Core/Src/global.c \
 ../Core/Src/main.c \
 ../Core/Src/manual.c \
+../Core/Src/setting.c \
 ../Core/Src/seven_segment_led.c \
 ../Core/Src/software_timer.c \
 ../Core/Src/stm32f1xx_hal_msp.c \
@@ -27,6 +28,7 @@ OBJS += \
 ./Core/Src/global.o \
 ./Core/Src/main.o \
 ./Core/Src/manual.o \
+./Core/Src/setting.o \
 ./Core/Src/seven_segment_led.o \
 ./Core/Src/software_timer.o \
 ./Core/Src/stm32f1xx_hal_msp.o \
@@ -43,6 +45,7 @@ C_DEPS += \
 ./Core/Src/global.d \
 ./Core/Src/main.d \
 ./Core/Src/manual.d \
+./Core/Src/setting.d \
 ./Core/Src/seven_segment_led.d \
 ./Core/Src/software_timer.d \
 ./Core/Src/stm32f1xx_hal_msp.d \
